@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('proyecto_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tarea_id')->constrained()->onDelete('cascade');
+            $table->string('titulo');
+            $table->text('descripcion');
+            $table->boolean('completada')->default(false);
+            $table->enum('prioridad', ['baja', 'media', 'alta'])->default('media');
+            $table->date('fecha_vencimiento')->nullable();
+            $table->date('fecha_creacion')->nullable();
             $table->timestamps();
         });
     }
