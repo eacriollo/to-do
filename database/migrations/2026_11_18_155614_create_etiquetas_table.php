@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('etiquetas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->foreignId('tarea_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
