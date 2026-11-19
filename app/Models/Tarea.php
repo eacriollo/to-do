@@ -42,7 +42,7 @@ class Tarea extends Model
     public function etiquetas(): BelongsToMany
     {
         return $this->belongsToMany(
-            Etiquetas::class,
+            Etiqueta::class,
             'etiqueta_tarea',
             'tarea_id',
             'etiqueta_id')->withTimestamps();

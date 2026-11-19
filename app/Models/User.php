@@ -35,4 +35,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Proyecto::class);
     }
+
+    public function tareas(): HasMany
+    {
+        return $this->hasMany(Tarea::class);
+    }
+
+    public function etiquetas(): HasMany
+    {
+        return $this->hasMany(Etiqueta::class);
+    }
+    
 }
