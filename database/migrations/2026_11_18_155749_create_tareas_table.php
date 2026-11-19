@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('proyecto_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('tarea_id')->constrained()->onDelete('cascade');
             $table->string('titulo');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->boolean('completada')->default(false);
             $table->enum('prioridad', ['baja', 'media', 'alta'])->default('media');
             $table->date('fecha_vencimiento')->nullable();
